@@ -1,7 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import MainPage from './pages/MainPage'
-import CreatePost from './pages/CreatePost'
+import MainPage from './pages/MainPage';
+import CreatePost from './pages/CreatePost';
+import Post from './pages/Post';
+
 import './App.css';
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
       <Router> 
         <Route path="/" exact render={(props) => <MainPage/>}/>
         <Route path="/createpost" exact render={(props) => <CreatePost/>}/>
+        <Route path='/post/:postId' render={(props) => <Post />} />
       </Router> 
     </>
   );

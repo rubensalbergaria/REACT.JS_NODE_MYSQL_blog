@@ -9,8 +9,15 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) =>{
-
+app.get("/api/get", (req, res) =>{
+  db.query("SELECT * FROM posts", 
+  (err, result) =>{
+    if (err){
+      console.log(err)
+    }  
+      res.send(result)
+ }
+);
 })
 
 app.post("/api/create"), (req, res) =>{
@@ -27,9 +34,7 @@ app.post("/api/create"), (req, res) =>{
       console.log(result)
  }
 );
-
 }
-
 app.listen(PORT, ()=>{
   console.log(`Server running on port ${PORT}`);
 })
