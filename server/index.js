@@ -20,6 +20,19 @@ app.get("/api/get", (req, res) =>{
 );
 })
 
+app.get("/api/getFromId/:id", (req, res) =>{
+
+  const id = req.params.id
+  db.query("SELECT * FROM posts WHERE id = ?", id, 
+  (err, result) =>{
+    if (err){
+      console.log(err)
+    }  
+      res.send(result)
+ }
+);
+})
+
 app.post("/api/create"), (req, res) =>{
 
   const username = req.body.userName;

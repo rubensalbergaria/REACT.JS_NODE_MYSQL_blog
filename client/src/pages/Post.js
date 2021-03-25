@@ -1,14 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react';
+import {useParams} from "react-router-dom";
+import Axios from "axios";
 
 export default function Post() {
+  let {postId} = useParams();
+
+  const [post, setPost] = useState({});
+
+  useEffect(() => {
+    Axios.get(`http://localhost:3001/api/getFromId/${postId}`).then((data)=>{
+      setPost({
+        title: data.data[0].title, 
+        postText: data.data[0].post_text, 
+        userName: data.data[0].user_name})
+    })
+  }, [])
+
   return (    
-      <div className="Post" key={key}>
-          <h1>{val.title}</h1>
-            <p>{val.post_text.lenght > 500 ? 
-              val.post_text.substring(0, 500) + '...': 
-              val.post_text}
+      <div className="Post">
+          <h1>{post.title}</h1>
+            <p>
+              {post.postText}
             </p>
-            <h4>{val.user_name}</h4>
+            <h4>{post.userName}</h4>
       </div>
     
   )

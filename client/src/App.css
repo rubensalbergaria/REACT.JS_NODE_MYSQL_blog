@@ -109,3 +109,7 @@ button{
 .Post p{
   width: 80%;  
 }
+
+.Post:hover{
+  cursor: pointer; 
+}
