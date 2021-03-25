@@ -67,12 +67,13 @@ textarea{
 }
 
 button{
-  width: 200px;
-  height: 50px;
+  width: 50px;
+  height: 30px;
   margin: 10px;
   cursor: pointer;
   background-color: gray;
   color: white;
+  border-radius: 10px;
 }
 
 /*MainPage*/
@@ -89,7 +90,7 @@ button{
   width: 70%;
   display: flex;
   justify-content: center;
-  background-color: lightgrey;
+  background-color: white;
   box-shadow: 2px 1 px 8px black;
   flex-direction: column;
   max-width: 50%;
@@ -106,10 +107,28 @@ button{
   align-items: center; 
 }
 
+.individualPost{
+  display: flex;
+  justify-content: center;
+}
+
 .Post p{
   width: 80%;  
 }
 
 .Post:hover{
   cursor: pointer; 
+}
+
+.Post.individual{
+  max-width: 60%;
+}
+
+.bottom{
+  display: flex;
+  flex-direction: row;
+}
+
+.bottom h4{
+  margin: 5px;
 }

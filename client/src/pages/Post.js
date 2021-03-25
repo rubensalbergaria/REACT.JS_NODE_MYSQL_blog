@@ -17,13 +17,14 @@ export default function Post() {
   }, [])
 
   return (    
-      <div className="Post">
+    <div className="individualPost">
+      <div className="Post individual">
           <h1>{post.title}</h1>
             <p>
               {post.postText}
             </p>
             <h4>{post.userName}</h4>
       </div>
-    
-  )
+    </div>     
+    )
 }

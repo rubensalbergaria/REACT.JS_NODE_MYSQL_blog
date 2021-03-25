@@ -14,6 +14,11 @@ useEffect(() => {
   })
 }, [])
 
+const likePost = (id) => {
+  Axios.post(`http://localhost:3001/api/like/${id}`).then((response) =>{
+    alert('you liked the post')
+  })
+}
   return (
     <div className="MainPage">
       <div className="PostContainer">
@@ -22,14 +27,20 @@ useEffect(() => {
             <div className="Post" 
               key={key} 
               onClick={() =>{
-                history.push(`/post/${val.id}`)
+                /* history.push(`/post/${val.id}`) */
             }}>
               <h1>{val.title}</h1>
               <p>{val.post_text.lenght > 500 ? 
                 val.post_text.substring(0, 500) + '...': 
                 val.post_text}
               </p>
-              <h4>{val.user_name}</h4>
+              <button onClick={()=>{
+                likePost(val.id)
+              }}>like</button>
+              <div className="bottom">
+                <h4>{val.user_name}</h4>
+                <h4>{val.likes}</h4>
+              </div>              
             </div>
             )
         })}

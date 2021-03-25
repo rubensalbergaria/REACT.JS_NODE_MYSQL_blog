@@ -48,6 +48,19 @@ app.post("/api/create"), (req, res) =>{
  }
 );
 }
+
+app.post('/api/like/:id', (req, res) => {
+
+  const id = req.params.id
+  db.query("UPDATE posts SET likes = likes + 1 WHERE id = ?", id,
+  (err, result) =>{
+    if (err){
+      console.log(err)
+    }  
+      console.log(result)
+ })
+})
+
 app.listen(PORT, ()=>{
   console.log(`Server running on port ${PORT}`);
 })
